@@ -1,0 +1,14 @@
+<!-- navbar.component.html -->
+<nav>
+    <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    &nbsp;
+    <a [routerLink]="['/plantaciones']" routerLinkActive="active-link">Plantaciones</a>
+    &nbsp;
+    <!-- <a [routerLink]="['/limpiezas']" routerLinkActive="active-link">Limpiezas</a>
+    &nbsp;-->
+    <a [routerLink]="['/actividades']" routerLinkActive="active-link">Actividades</a>
+    &nbsp;
+    <a [routerLink]="['/plantaciones/nueva']" routerLinkActive="active-link">Nueva Plantacion</a>
+    &nbsp;
+    <a [routerLink]="['/home']" routerLinkActive="active-link">Contacto</a>
+</nav>

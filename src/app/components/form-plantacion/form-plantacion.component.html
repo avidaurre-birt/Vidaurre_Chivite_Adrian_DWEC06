@@ -1,0 +1,50 @@
+<div class="seccion-formulario">
+    <h3>Crear Nueva Plantación</h3>
+
+    <form #nuevaPlantacionForm="ngForm" (ngSubmit)="createPlantacion(nuevaPlantacion)">
+        <div class="form-group">
+            <label>Ubicación:</label>
+            <input type="text" [(ngModel)]="nuevaPlantacion.ubicacion" name="ubicacion" required [disabled]="enviando">
+        </div>
+
+        <div class="form-group">
+            <label>Fecha:</label>
+            <input type="text" [(ngModel)]="nuevaPlantacion.fecha" name="fecha" required [disabled]="enviando">
+        </div>
+
+        <div class="form-group">
+            <label>Participantes:</label>
+            <input type="number" [(ngModel)]="nuevaPlantacion.participantes" name="participantes" required
+                [disabled]="enviando">
+        </div>
+
+        <!-- Arboles para esta plantación -->
+        <div class="form-group">
+            <h4>Agregar Árbol</h4>
+            <label>Especie:</label>
+            <input type="text" [(ngModel)]="nuevoArbol.especie" name="especieTemp" required [disabled]="enviando">
+
+            <label>Cantidad:</label>
+            <input type="number" [(ngModel)]="nuevoArbol.cantidad" name="cantidadTemp" required [disabled]="enviando">
+
+            <button type="button" (click)="agregarArbol()"
+                [disabled]="!nuevoArbol.especie || nuevoArbol.cantidad < 1 || enviando">Añadir Árbol</button>
+        </div>
+
+        <!-- Lista de árboles añadidos -->
+        <div class="listado-arboles" *ngIf="nuevaPlantacion.trees.length > 0">
+            <h5>Árboles añadidos:</h5>
+            <ul>
+                <li *ngFor="let arbol of nuevaPlantacion.trees; let i = index">
+                    {{ arbol.especie }} - {{ arbol.cantidad }} unidades
+                    <button type="button" (click)="nuevaPlantacion.trees.splice(i, 1)" [disabled]="enviando">
+                        ✕
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <button type="submit" [disabled]="!formValido || enviando"> {{ enviando ? 'Enviando...' : 'Crear Plantación'
+            }}</button>
+    </form>
+
+</div>

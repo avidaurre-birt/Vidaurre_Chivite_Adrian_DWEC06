@@ -1,0 +1,212 @@
+/* plantacion.component.scss */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  color: var(--color-dark-brown);
+  border-bottom: 2px solid var(--color-mustard);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.listado {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  
+}
+
+.acciones button {
+  background-color: var(--color-eco-green);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken(#3A5F0B, 10%);
+  }
+}
+
+.item-listado {
+  background: var(--color-cream);
+  border: 1px solid var(--color-mustard);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  h4 a {
+    color: var(--color-eco-green);
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.detalle {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  
+  .detalle-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-cream);
+    border-left: 4px solid var(--color-eco-green);
+    border-radius: 4px;
+
+    label {
+      color: var(--color-light-brown);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    span {
+      color: var(--color-dark-brown);
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.botones-accion {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  
+  button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    
+    &:nth-child(1) { /* Editar */
+      background-color: var(--color-mustard);
+      color: var(--color-dark-brown);
+      
+      &:hover {
+        background-color: darken(#D4A418, 10%);
+      }
+    }
+    
+    &:nth-child(2) { /* Eliminar */
+      background-color: var(--color-error);
+      color: white;
+      
+      &:hover {
+        background-color: darken(#dc3545, 10%);
+      }
+    }
+    
+    &:nth-child(3) { /* Volver */
+      background-color: var(--color-light-brown);
+      color: white;
+      
+      &:hover {
+        background-color: var(--color-dark-brown);
+      }
+    }
+  }
+}
+
+/* Formulario de edición */
+form {
+  .form-group {
+    margin-bottom: 1.5rem;
+    
+    label {
+      display: block;
+      color: var(--color-light-brown);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--color-mustard);
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: var(--color-eco-green);
+        box-shadow: 0 0 0 2px rgba(#3A5F0B, 0.2);
+      }
+    }
+  }
+}
+
+.seccion-arboles {
+  background-color: var(--color-cream);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+  
+  .arbol-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid var(--color-mustard);
+    
+    input {
+      flex: 1;
+      padding: 0.5rem;
+    }
+    
+    button {
+      background-color: var(--color-error);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+  
+  > button {
+    background-color: var(--color-eco-green);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  
+  li {
+    padding: 0.3rem 0;
+    color: var(--color-dark-brown);
+    
+    &:before {
+      content: "🌳";
+      margin-right: 0.5rem;
+    }
+  }
+}

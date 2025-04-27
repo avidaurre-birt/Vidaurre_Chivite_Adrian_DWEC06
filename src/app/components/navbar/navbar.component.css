@@ -1,0 +1,37 @@
+nav {
+  background-color: var(--color-dark-brown);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  a {
+    color: var(--color-cream);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+
+    &:hover {
+      background-color: var(--color-light-brown);
+      color: var(--color-mustard);
+    }
+
+    &.active-link {
+      background-color: var(--color-eco-green);
+      color: white;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 2px;
+        background-color: var(--color-mustard);
+      }
+    }
+  }
+}

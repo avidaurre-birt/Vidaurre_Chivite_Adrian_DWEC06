@@ -1,0 +1,182 @@
+/* form-plantacion.component.scss */
+.seccion-formulario {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Roboto', sans-serif;
+
+  h3 {
+    color: var(--color-dark-brown);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--color-mustard);
+  }
+}
+
+form {
+  display: grid;
+  gap: 1.5rem;
+
+  .form-group {
+    label {
+      display: block;
+      color: var(--color-light-brown);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--color-mustard);
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background-color: var(--color-cream);
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-eco-green);
+        box-shadow: 0 0 0 3px rgba(58, 95, 11, 0.1);
+      }
+
+      &[disabled] {
+        background-color: #f8f8f8;
+        opacity: 0.7;
+      }
+    }
+
+    h4 {
+      color: var(--color-eco-green);
+      margin: 1.5rem 0 1rem;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+button[type="button"] {
+  background-color: var(--color-mustard);
+  color: var(--color-dark-brown);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+
+  &:hover:not([disabled]) {
+    background-color: darken(#D4A418, 10%);
+    transform: translateY(-2px);
+  }
+
+  &[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.listado-arboles {
+  background-color: var(--color-cream);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+
+  h5 {
+    color: var(--color-light-brown);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.8rem;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      background-color: white;
+      border-radius: 4px;
+      border: 1px solid var(--color-mustard);
+      font-size: 0.95rem;
+
+      button {
+        background: none;
+        border: none;
+        color: var(--color-error);
+        font-weight: bold;
+        cursor: pointer;
+        padding: 0.3rem;
+        margin-left: 1rem;
+        transition: opacity 0.3s ease;
+
+        &:hover:not([disabled]) {
+          opacity: 0.8;
+        }
+
+        &[disabled] {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+
+      &:before {
+        content: "🌱";
+        margin-right: 0.8rem;
+      }
+    }
+  }
+}
+
+button[type="submit"] {
+  background-color: var(--color-eco-green);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  justify-self: center;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 1.5rem;
+
+  &:hover:not([disabled]) {
+    background-color: darken(#3A5F0B, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &[disabled] {
+    background-color: var(--color-light-brown);
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 768px) {
+  .seccion-formulario {
+    padding: 1.5rem;
+    margin: 1rem;
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  form {
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,108 @@
+<!-- plantacion.component.html -->
+<div class="container">
+
+    <!-- Vista de lista de plantaciones -->
+    <div *ngIf="!id">
+        <h2>Listado de Plantaciones</h2>
+
+        <!-- Listado de plantaciones -->
+        <div class="listado">
+            <div *ngFor="let plantacion of plantaciones" class="item-listado">
+                <div class="info">
+                    <h4>
+                        <a [routerLink]="['/plantaciones', plantacion.id]">
+                            {{ plantacion.ubicacion }}
+                        </a>
+                    </h4>
+                    <p>Fecha: {{ plantacion.fecha }}</p>
+
+                </div>
+                <div class="acciones">
+                    <button [routerLink]="['/plantaciones', plantacion.id]">Mas informacion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vista de detalle de plantación -->
+    <div *ngIf="id && plantacion" class="detalle">
+        <h2>Detalles de Plantación</h2>
+
+        <!-- Modo visualización *ngIf="!editMode">-->
+        <div>
+            <div class="detalle-item">
+                <label>Ubicación:</label>
+                <span>{{ plantacion.ubicacion }}</span>
+            </div>
+
+            <div class="detalle-item">
+                <label>Fecha:</label>
+                <span>{{ plantacion.fecha}}</span>
+            </div>
+
+            <div class="detalle-item">
+                <label>Participantes:</label>
+                <span>{{ plantacion.participantes }}</span>
+            </div>
+
+            <div class="detalle-item">Arboles plantados
+                <div *ngFor="let arbol of plantacion.trees">
+                    <ul>
+                        <li>Especie: {{arbol.especie}}</li>
+                        <li>Cantidad: {{arbol.cantidad}}</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="botones-accion">
+                <button (click)="activarEdicion()">Editar</button>
+                <button (click)="deletaPlantacion(id)">Eliminar</button>
+                <button (click)="irAListado()">Volver al listado</button>
+            </div>
+        </div>
+
+        <!-- Modo edición -->
+        <div *ngIf="editMode">
+            <form #editarPlantacionForm="ngForm" (ngSubmit)="updatePlantacion()">
+                <div class="form-group">
+                    <label>Ubicación:</label>
+                    <input type="text" [(ngModel)]="plantacion.ubicacion" name="ubicacion" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha:</label>
+                    <input type="text" [(ngModel)]="plantacion.fecha" name="fecha" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Participantes:</label>
+                    <input type="number" [(ngModel)]="plantacion.participantes" name="participantes" required>
+                </div>
+
+                <!-- Sección para editar árboles -->
+                <div class="seccion-arboles">
+                    <h4>Árboles plantados</h4>
+                    <div *ngFor="let arbol of plantacion.trees; let i = index" class="arbol-item">
+                        <input [(ngModel)]="arbol.especie" [name]="'especie-' + i" placeholder="Especie">
+                        <input type="number" [(ngModel)]="arbol.cantidad" [name]="'cantidad-' + i"
+                            placeholder="Cantidad" min="1">
+                        <button type="button" (click)="plantacion.trees.splice(i, 1)">Eliminar</button>
+                    </div>
+                    <button type="button" (click)="agregarArbol()">
+                        Añadir árbol
+                    </button>
+                </div>
+                <div class="botones-accion">
+                    <button type="submit" [disabled]="!editarPlantacionForm.valid">Guardar</button>
+                    <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>

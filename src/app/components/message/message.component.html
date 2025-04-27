@@ -1,0 +1,15 @@
+<div *ngIf="message" class="message-container" [class]="message.type">
+    <div class="content">
+        <span class="icon" *ngIf="message.icon">{{ message.icon }}</span>
+        <span class="text">{{ message.content }}</span>
+    </div>
+
+    <div class="actions" *ngIf="message.actions?.length">
+        <button *ngFor="let action of message.actions" [class]="action.style || 'primary'"
+            (click)="handleAction(action)">
+            {{ action.label }}
+        </button>
+    </div>
+
+    <button class="dismiss" (click)="dismiss()">&times;</button>
+</div>

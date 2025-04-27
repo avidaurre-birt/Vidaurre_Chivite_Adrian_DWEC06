@@ -1,0 +1,97 @@
+<!-- home.component.html -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>ReforestAcción</h1>
+        <p class="tagline">Plantamos árboles,<br> despertamos conciencias</p>
+    </div>
+</section>
+
+<div class="container">
+    <!-- Sección de estadísticas -->
+    <div class="stats-section">
+        <div class="stat-card">
+            <div class="stat-icon">🌳</div>
+            <div class="stat-number">{{ totalArboles | number }}</div>
+            <div class="stat-label">Árboles plantados</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📋</div>
+            <div class="stat-number">{{ totalPlantaciones }}</div>
+            <div class="stat-label">Plantaciones realizadas</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-number">2,450</div>
+            <div class="stat-label">Voluntarios activos</div>
+        </div>
+    </div>
+
+    <!-- Loading state -->
+    <div *ngIf="loading" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Sección Misión -->
+    <section class="mission-section">
+        <div class="mission-text">
+            <h2>ReforestAcción Nafarroa es una asociación sin ánimo de lucro cuyo objetivo es la concienciación sobre la
+                crisis climática y ecológica a través de <span class="subrayado">actividades que transformen nuestra
+                    forma de relacionarnos con la naturaleza,</span> principalmente, la plantación de árboles.</h2>
+
+            <div class="mission-details">
+                <p>La asociación nace cuando un grupo de personas, procedentes de ámbitos diferentes pero unidas por la
+                    inquietud frente a la emergencia climática y ecológica, decidimos organizarnos y hacer algo al
+                    respecto.
+                </p>
+
+                <p>Nuestro propósito es el aumento de la conciencia ambiental de la sociedad, para ello realizamos
+                    acciones
+                    como:</p>
+
+                <ul class="eco-list">
+                    <li>Actividades de educación y sensibilización ambiental</li>
+                    <li>Plantaciones y cuidados de árboles</li>
+                    <li>Limpiezas de zonas naturales</li>
+                    <li>Creación y gestión de bancos de semillas y viveros</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mission-image">
+            <img src="../../assets/limpieza_rio_1.jpg" alt="Voluntarios plantando árboles">
+        </div>
+    </section>
+
+
+
+
+    <section class="cta-section">
+        <h2>Únete al cambio</h2>
+        <p>Tus acciones hoy marcarán la diferencia del mañana</p>
+        <button class="cta-button" routerLink="/plantaciones/nueva">Participar ahora</button>
+    </section>
+
+    <section class="news-section">
+        <h2>Últimas Acciones</h2>
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-image" style="background-image: url('assets/noticia1.jpg')"></div>
+                <div class="news-content">
+                    <span class="news-tag">Reforestación</span>
+                    <h3>Nueva plantación en el Bosque del Sur</h3>
+                    <p>150 voluntarios participaron en nuestra última jornada...</p>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image" style="background-image: url('assets/noticia2.jpg')"></div>
+                <div class="news-content">
+                    <span class="news-tag">Educación</span>
+                    <h3>Talleres de agricultura sostenible</h3>
+                    <p>Capacitamos a 200 familias en técnicas orgánicas...</p>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
